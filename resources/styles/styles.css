@@ -1,12 +1,18 @@
 .selected {
   color: green;
 }
+.reorder{
+  text-decoration:underline;
+  font-style: italic;
+  color: red;
+}
 
 .kegs:hover {
   cursor: pointer;
 }
 
-.keg-form {
+.keg-forms {
   margin-top: 10px;
   margin-bottom: 80px;
+  float: right;
 }

@@ -9,10 +9,13 @@ import {EditKegComponent} from './edit-keg.component';
   outputs: ['onKegSelect'],
   directives: [KegComponent, EditKegComponent],
   template: `
-    <keg-display *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" [class.selected]='currentKeg === selectedKeg' [keg]='currentKeg'>
-    </keg-display>
-    <edit-keg *ngIf="selectedKeg" [keg]="selectedKeg"></edit-keg>
-
+    <div class="col-md-6">
+      <keg-display *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" [class.selected]='currentKeg === selectedKeg' [class.reorder]='currentKeg.pintsLeft <= 10'[keg]='currentKeg'>
+      </keg-display>
+    </div>
+    <div class="keg-forms col-md-6">
+      <edit-keg *ngIf="selectedKeg" [keg]="selectedKeg"></edit-keg>
+    </div>
   `
 })
 

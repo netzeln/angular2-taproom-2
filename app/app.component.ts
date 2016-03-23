@@ -7,8 +7,10 @@ import {KegListComponent} from './keg-list.component';
   directives: [KegListComponent],
   template:`
     <div class="container">
-      <h1>Our Taps</h1>
-      <keg-list [kegList]="kegs" (onKegSelect)="kegWasSelected($event)"></keg-list>
+      <div class="row">
+        <h1>Our Taps</h1>
+        <keg-list [kegList]="kegs" (onKegSelect)="kegWasSelected($event)"></keg-list>
+      </div>
     </div>
     `
 })
