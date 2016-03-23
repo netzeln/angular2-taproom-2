@@ -1,10 +1,11 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { Keg } from './keg.model';
 import { KegListComponent } from './keg-list.component';
+import { SellPintComponent } from './sell-pint.component';
 
 @Component({
   selector: 'my-app',
-  directives: [KegListComponent],
+  directives: [KegListComponent, SellPintComponent],
   template:`
     <div class="container">
       <h1>Our Taps</h1>

@@ -1,12 +1,13 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {Keg} from './keg.model';
 import {KegComponent} from './keg.component';
+import { SellPintComponent } from './sell-pint.component';
 
 @Component ({
   selector: 'keg-list',
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
-  directives: [KegComponent],
+  directives: [KegComponent, SellPintComponent],
   template: `
     <keg-display *ngFor="#currentKeg of kegList" (click)="kegClicked(currentKeg)" [class.selected]='currentKeg === selectedKeg' [keg]='currentKeg'>
     </keg-display>
