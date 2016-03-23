@@ -2,7 +2,6 @@ import {Component} from 'angular2/core';
 import {Keg} from './keg.model';
 import {SellPintComponent} from './sell-pint.component';
 
-
 @Component({
   selector: 'keg-display',
   inputs: ['keg'],

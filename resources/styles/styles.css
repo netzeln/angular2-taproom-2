@@ -5,3 +5,8 @@
 .kegs:hover {
   cursor: pointer;
 }
+
+.keg-form {
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
