@@ -1,4 +1,5 @@
 export class Keg {
+  public low: boolean = false;
   public pintsLeft: number = 124;
   public beerName: string;
   public breweryName: string;
