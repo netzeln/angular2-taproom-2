@@ -6,14 +6,14 @@ import {Keg} from './keg.model';
   inputs: ['keg'],
   template: `
     <h3>Edit Keg Info:</h3>
-    <h4>Edit Beer Name:</h4>
-    <input [(ngModel)]="keg.beerName" class="col-sm-8 task-form"/><br>
-    <h4>Edit Brewery Name:</h4>
-    <input [(ngModel)]="keg.breweryName" class="col-sm-8 task-form"/><br>
-    <h4>Edit Beer ABV:</h4>
-    <input [(ngModel)]="keg.abv" class="col-sm-8 task-form"/><br>
-    <h4>Edit Beer Price:</h4>
-    <input [(ngModel)]="keg.price" class="col-sm-8 task-form"/>
+    <label>Edit Beer Name:</label>
+    <input [(ngModel)]="keg.beerName"/><br>
+    <label>Edit Brewery Name:</label>
+    <input [(ngModel)]="keg.breweryName"/><br>
+    <label>Edit Beer ABV:</label>
+    <input [(ngModel)]="keg.abv"/><br>
+    <label>Edit Beer Price:</label>
+    <input [(ngModel)]="keg.price"/>
   `
 })
 
