@@ -1,1 +1,7 @@
+.selected {
+  color: green;
+}
 
+.kegs:hover {
+  cursor: pointer;
+}

@@ -8,7 +8,7 @@ import { KegListComponent } from './keg-list.component';
   template:`
     <div class="container">
       <h1>Our Taps</h1>
-      <keg-list [kegList]="kegs"></keg-list>
+      <keg-list [kegList]="kegs" (onKegSelect)="kegWasSelected($event)"></keg-list>
     </div>
     `
 })
