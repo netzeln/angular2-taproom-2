@@ -3,13 +3,14 @@ import {Keg} from './keg.model';
 import {KegComponent} from './keg.component';
 import {EditKegComponent} from './edit-keg.component';
 import {AddKegComponent} from './add-keg.component';
-import {PintsLeftPipe} from './pints-left.pipe'
+import {PintsLeftPipe} from './pints-left.pipe';
+import {StrengthPipe} from './strength-pipe.pipe';
 
 @Component ({
   selector: 'keg-list',
   inputs: ['kegList'],
   outputs: ['onKegSelect'],
-  pipes: [PintsLeftPipe],
+  pipes: [PintsLeftPipe, StrengthPipe],
   directives: [KegComponent, EditKegComponent, AddKegComponent],
   template: `
     <div class="col-md-6">

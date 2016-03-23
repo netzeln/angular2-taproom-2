@@ -19,10 +19,10 @@ export class AppComponent {
   public kegs: Keg[];
     constructor() {
       this.kegs = [
-        new Keg(["Lents Lager", "Zoiglhaus", 4.9, 4.50]),
-        new Keg(["Session Black", "Full Sail", 5, 3]),
-        new Keg(["Ruinator IPA", "Stone", 6.1, 5]),
-        new Keg(["Black Bear Stout", "Alameda", 5, 6])
+        new Keg(["Lents Lager", "Zoiglhaus", 5, 4.50]),
+        new Keg(["Session Black", "Full Sail", 5.4, 3]),
+        new Keg(["Ruinator IPA", "Stone", 8.4, 5]),
+        new Keg(["Black Bear Stout", "Alameda", 6.8, 6])
       ];
     }
     kegWasSelected(clickedKeg: Keg): void{
