@@ -1,14 +1,23 @@
+export interface IBeer {
+  beerName: string;
+  breweryName: string;
+  abv: number;
+  price: number;
+}
+
 export class Keg {
   public low: boolean = false;
   public pintsLeft: number = 124;
+
+  //beer details
   public beerName: string;
   public breweryName: string;
   public abv: number;
   public price: number;
-  constructor(public kegDetails: any[]) {
-    this.beerName = kegDetails[0];
-    this.breweryName = kegDetails[1];
-    this.abv = kegDetails[2];
-    this.price = kegDetails[3];
+  constructor(public kegDetails: IBeer) {
+    this.beerName = kegDetails.beerName;
+    this.breweryName = kegDetails.breweryName;
+    this.abv = kegDetails.abv;
+    this.price = kegDetails.price;
   }
 }

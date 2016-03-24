@@ -1,5 +1,5 @@
 import {Component, EventEmitter} from 'angular2/core';
-import {Keg} from './keg.model';
+import {Keg, IBeer} from './keg.model';
 import {KegComponent} from './keg.component';
 import {EditKegComponent} from './edit-keg.component';
 import {AddKegComponent} from './add-keg.component';
@@ -23,12 +23,13 @@ import {StrengthPipe} from './strength-pipe.pipe';
         <option value="strong">Beers over 5.5% ABV</option>
         <option value="weak">Beers under 5.5% ABV</option>
       </select>
-      <keg-display *ngFor="#currentKeg of kegList | low:filterLow | strength:filterAbv"
-      (click)="kegClicked(currentKeg)" [class.selected]='currentKeg === selectedKeg' [class.reorder]='currentKeg.pintsLeft <= 10'[keg]='currentKeg'>
-      </keg-display>
+      <div *ngFor="#currentKeg of kegList | low:filterLow | strength:filterAbv">
+        <keg-display (click)="kegClicked(currentKeg)" [class.selected]='currentKeg === selectedKeg' [class.reorder]='currentKeg.pintsLeft <= 10'[keg]='currentKeg'>
+        </keg-display>
+        <edit-keg *ngIf="currentKeg === selectedKeg" [keg]="currentKeg"></edit-keg>
+      </div>
     </div>
     <div class="keg-forms col-md-6">
-      <edit-keg *ngIf="selectedKeg" [keg]="selectedKeg"></edit-keg>
       <add-keg (newKeg)="addKeg($event)"></add-keg>
     </div>
   `
@@ -47,7 +48,7 @@ export class KegListComponent {
     this.selectedKeg = clickedKeg;
     this.onKegSelect.emit(clickedKeg);
   }
-  addKeg(kegDetails: any[]): void {
+  addKeg(kegDetails: IBeer): void {
     this.kegList.push(
       new Keg(kegDetails)
     );
@@ -58,5 +59,4 @@ export class KegListComponent {
   onChangeStrength(filterStrength){
     this.filterAbv = filterStrength;
   }
-
 }

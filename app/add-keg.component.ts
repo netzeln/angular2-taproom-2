@@ -1,5 +1,5 @@
 import {Component, EventEmitter} from 'angular2/core';
-import {Keg} from './keg.model';
+import {Keg, IBeer} from './keg.model';
 
 @Component ({
   selector: 'add-keg',
@@ -19,13 +19,18 @@ import {Keg} from './keg.model';
 })
 
 export class AddKegComponent {
-  public newKeg: EventEmitter<any[]>;
+  public newKeg: EventEmitter<IBeer>;
   constructor(){
     this.newKeg = new EventEmitter();
   }
   addKeg(inputBeerName: HTMLInputElement, inputBrewery: HTMLInputElement, inputAbv: HTMLInputElement, inputPrice: HTMLInputElement){
-    var kegInfo = [inputBeerName.value, inputBrewery.value, inputAbv.value, inputPrice.value];
-    console.log(inputBeerName.value);
+    var kegInfo : IBeer = {
+      beerName: inputBeerName.value,
+      breweryName: inputBrewery.value,
+      abv:  parseFloat(inputAbv.value),
+      price: parseFloat(inputPrice.value)
+    };
+
     if((inputBeerName.value === "") || (inputBrewery.value === "") || (inputAbv.value === "") || (inputPrice.value === "")) {
       alert("Please fill out all the fields before adding a new keg!");
     } else {

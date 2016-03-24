@@ -21,7 +21,7 @@ export class SellPintComponent {
     this.pitcherSold = new EventEmitter();
   }
   sellPint(keg){
-    keg.pintsLeft = keg.pintsLeft - 1;
+    keg.pintsLeft--;
     this.pintSold.emit(keg);
   }
   sellPitcher(keg){
