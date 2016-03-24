@@ -14,11 +14,16 @@ import {StrengthPipe} from './strength-pipe.pipe';
   directives: [KegComponent, EditKegComponent, AddKegComponent],
   template: `
     <div class="col-md-6">
-      <select (change)="onChange($event.target.value)" class="filter">
+      <select (change)="onChangePintsLeft($event.target.value)" class="filter">
         <option value="all">Show ALL Kegs</option>
         <option value="low">Show LOW Kegs</option>
       </select>
-      <keg-display *ngFor="#currentKeg of kegList | low:filterLow"
+      <select (change)="onChangeStrength($event.target.value)" class="filter-by-abv">
+        <option value="all-beers">Show ALL Beers</option>
+        <option value="strong">Beers over 5.5% ABV</option>
+        <option value="weak">Beers under 5.5% ABV</option>
+      </select>
+      <keg-display *ngFor="#currentKeg of kegList | low:filterLow | strength:filterAbv"
       (click)="kegClicked(currentKeg)" [class.selected]='currentKeg === selectedKeg' [class.reorder]='currentKeg.pintsLeft <= 10'[keg]='currentKeg'>
       </keg-display>
     </div>
@@ -34,6 +39,7 @@ export class KegListComponent {
   public onKegSelect: EventEmitter<Keg>;
   public selectedKeg: Keg;
   public filterLow: string = "all";
+  public filterAbv: string = "all-beers";
   constructor(){
     this.onKegSelect = new EventEmitter();
   }
@@ -46,7 +52,11 @@ export class KegListComponent {
       new Keg(kegDetails)
     );
   }
-  onChange(filterPintLevel) {
+  onChangePintsLeft(filterPintLevel) {
     this.filterLow = filterPintLevel;
   }
+  onChangeStrength(filterStrength){
+    this.filterAbv = filterStrength;
+  }
+
 }
