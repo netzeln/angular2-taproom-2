@@ -10,6 +10,7 @@ export class Keg {
   public pintsLeft: number = 124;
 
   //beer details
+  public beerType: IBeer;
   public beerName: string;
   public breweryName: string;
   public abv: number;

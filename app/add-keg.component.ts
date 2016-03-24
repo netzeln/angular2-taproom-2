@@ -24,7 +24,7 @@ export class AddKegComponent {
     this.newKeg = new EventEmitter();
   }
   addKeg(inputBeerName: HTMLInputElement, inputBrewery: HTMLInputElement, inputAbv: HTMLInputElement, inputPrice: HTMLInputElement){
-    var kegInfo : IBeer = {
+    var kegInfo: IBeer = {
       beerName: inputBeerName.value,
       breweryName: inputBrewery.value,
       abv:  parseFloat(inputAbv.value),
